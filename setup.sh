@@ -4,10 +4,12 @@ FMT_GREEN=$(printf '\033[32m')
 FMT_RESET=$(printf '\033[0m')
 
 echo "[*] ${FMT_GREEN}Installing pre-requisites${FMT_RESET}"
-apt update && apt install tmux zsh grc git curl -y || exit 1
+sudo apt update && sudo apt install tmux zsh grc git curl -y || exit 1
 
 echo "[*] ${FMT_GREEN}Installing oh-my-zsh and plugins${FMT_RESET}"
-RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "[*] ${FMT_GREEN}Changing the default shell to zsh${FMT_RESET}"
+chsh -s $(which zsh) "$USER"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
