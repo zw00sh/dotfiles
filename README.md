@@ -3,7 +3,7 @@ Includes configuration files for tmux and zsh. Installs:
 - tmux with continuum and resurrect for automatic session backup
 
 # Installation
-Please backup your `~/.zshrc`, `~/.tmux.conf` and `~./.grc/grc.conf` before running.
+Please backup your `~/.zshrc`, `~/.tmux.conf` and `~/.grc/grc.conf` before running.
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zw00sh/dotfiles/main/setup.sh)"
 ```
