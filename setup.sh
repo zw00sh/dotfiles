@@ -8,10 +8,10 @@ sudo apt update && sudo apt install tmux zsh grc git curl -y || exit 1
 
 echo "[*] ${FMT_GREEN}Installing oh-my-zsh and plugins${FMT_RESET}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-echo "[*] ${FMT_GREEN}Changing the default shell to zsh${FMT_RESET}"
-chsh -s $(which zsh) "$USER"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo "[*] ${FMT_GREEN}Changing the default shell to zsh${FMT_RESET}"
+chsh -s $(which zsh) "$USER"
 
 echo "[*] ${FMT_GREEN}Overwriting ~/.zshrc, ~/.tmux.conf, ~/.grc/grc.conf with remote copies${FMT_RESET}"
 curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.zshrc" > ~/.zshrc
