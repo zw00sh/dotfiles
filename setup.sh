@@ -21,9 +21,11 @@ curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.grc/grc.conf
 
 echo "[*] ${FMT_GREEN}Installing tmux plugins${FMT_RESET}"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-zsh -c "tmux source ~/.tmux.conf"
+tmux source ~/.tmux.conf
 ~/.tmux/plugins/tpm/bin/install_plugins
+
+echo "[*] ${FMT_GREEN}Configuring tmux to use zsh by default${FMT_RESET}"
+echo "set -g default-shell $(which zsh)" >> ~/.tmux.conf
 
 echo "[*] ${FMT_GREEN}Reloading zsh${FMT_RESET}"
 zsh -c "source ~/.zshrc" && zsh
