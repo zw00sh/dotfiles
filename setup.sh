@@ -19,8 +19,7 @@ curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.zshrc" > ~/.
 curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.tmux.conf" > ~/.tmux.conf
 
 echo "[*] ${FMT_GREEN}Installing tmux plugins${FMT_RESET}"
-python3 -m pip install --user libtmux==0.16.1 --break-system-packages 2>/dev/null || \
-python3 -m pip install --user libtmux==0.16.1
+python3 -m pip install --user libtmux==0.16.1 --break-system-packages 2>/dev/null || python3 -m pip install --user libtmux==0.16.1
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ~/.tmux/plugins/tpm/bin/install_plugins

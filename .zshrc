@@ -85,11 +85,11 @@ function create_target_session() {
 zle -N create_target_session
 bindkey '^N' create_target_session
 
-# add a hook for tmux-window-name to change windows on directory change
+# add a hook for tmux-window-name to change windows on command entry
 tmux-window-name() {
 	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
 }
-add-zsh-hook chpwd tmux-window-name
+add-zsh-hook preexec tmux-window-name
 
 # Set GRC aliases
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
