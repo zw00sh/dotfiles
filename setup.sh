@@ -19,12 +19,10 @@ curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.tmux.conf" >
 mkdir ~/.grc/
 curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.grc/grc.conf" > ~/.grc/grc.conf
 
-echo "[*] ${FMT_GREEN}Reloading zsh${FMT_RESET}"
-zsh -c "source ~/.zshrc"
-
 echo "[*] ${FMT_GREEN}Installing tmux plugins${FMT_RESET}"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source ~/.tmux.conf
+
+zsh -c "tmux source ~/.tmux.conf"
 ~/.tmux/plugins/tpm/bin/install_plugins
 
 echo "[*] ${FMT_GREEN}Reloading zsh${FMT_RESET}"
