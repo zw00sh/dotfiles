@@ -4,7 +4,7 @@ FMT_GREEN=$(printf '\033[32m')
 FMT_RESET=$(printf '\033[0m')
 
 echo "[*] ${FMT_GREEN}Installing pre-requisites (tmux, zsh, grc, python3, git, curl)${FMT_RESET}"
-sudo apt update && sudo apt install tmux zsh grc python3 python3-libtmux git curl -y || exit 1
+sudo apt update && sudo apt install tmux zsh grc python3 python3-pip git curl -y || exit 1
 
 echo "[*] ${FMT_GREEN}Installing oh-my-zsh and plugins${FMT_RESET}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -19,6 +19,7 @@ curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.zshrc" > ~/.
 curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.tmux.conf" > ~/.tmux.conf
 
 echo "[*] ${FMT_GREEN}Installing tmux plugins${FMT_RESET}"
+python3 -m pip install --user libtmux==0.16.1 --break-system-packages
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ~/.tmux/plugins/tpm/bin/install_plugins
