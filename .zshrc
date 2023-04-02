@@ -85,10 +85,11 @@ function create_target_session() {
 zle -N create_target_session
 bindkey '^N' create_target_session
 
+# Set GRC aliases
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 # Otherwise start tmux
 [[ -z "$TMUX" ]] && cd ~ && exec tmux new-session -As main
 #[[ -z "$TMUX" ]] && exec tmux new-session
-# Set GRC aliases
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh

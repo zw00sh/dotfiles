@@ -28,4 +28,4 @@ tmux source ~/.tmux.conf
 ~/.tmux/plugins/tpm/bin/install_plugins
 
 echo "[*] ${FMT_GREEN}Reloading zsh${FMT_RESET}"
-zsh -c "source ~/.zshrc" && zsh -c "tmux
+zsh -c "source ~/.zshrc" && zsh
