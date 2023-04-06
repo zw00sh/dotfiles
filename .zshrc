@@ -22,6 +22,7 @@ then
 	alias netstat='grc netstat'
 	alias ps='grc ps'
 fi
+alias venv='python3 -m venv'
 
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
