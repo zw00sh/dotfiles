@@ -22,6 +22,7 @@ then
 	alias netstat='grc netstat'
 	alias ps='grc ps'
 fi
+alias venv='python3 -m venv'
 
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
@@ -87,7 +88,7 @@ bindkey '^N' create_target_session
 
 # add a hook for tmux-window-name to change windows on command entry
 tmux-window-name() {
-	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py 2>/dev/null &)
 }
 add-zsh-hook preexec tmux-window-name
 
