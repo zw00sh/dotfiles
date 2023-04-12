@@ -35,6 +35,8 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
+PROMPT='[%{$fg[red]%}$target%{$reset_color%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )'
+PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 # configure key keybindings
 bindkey ' ' magic-space							# do history expansion on space
