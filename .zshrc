@@ -101,4 +101,4 @@ add-zsh-hook preexec tmux-window-name
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 # Otherwise start tmux
-[[ -z "$TMUX" ]] && cd ~ && tmux new-session -t main 
+[[ -z "$TMUX" ]] && tmux new-session -t main 
