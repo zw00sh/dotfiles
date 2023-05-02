@@ -35,9 +35,9 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
-PROMPT='$(if [ -n "$target" ]; then echo "[%{$fg[red]%}$target%{$reset_color%}] "; fi)'	# target info if $target set
-PROMPT+='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )'								# arrow
-PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'							# git info
+# comment these lines to remove the target information from the prompt
+TARGET='$(if [ -n "$target" ]; then echo "[%{$fg[magenta]%}$target%{$reset_color%}] "; fi)'
+PROMPT=$TARGET$PROMPT	# prepend target info if $target set
 
 # configure key keybindings
 bindkey ' ' magic-space							# do history expansion on space
@@ -47,8 +47,8 @@ bindkey '^[[1;5D' backward-word					# ctrl + <-			(important)
 bindkey '^H' backward-kill-word					# ctrl + backspace	(important)
 bindkey '^[[3;5~' kill-word						# ctrl + Supr
 bindkey '^[[3~' delete-char						# delete
-bindkey '^[[H' beginning-of-line				# home
-bindkey '^[[F' end-of-line						# end
+bindkey '^[[1~' beginning-of-line				# home
+bindkey '^[[4~' end-of-line						# end
 bindkey '^[[Z' undo								# shift + tab undo last action
 bindkey '^ ' autosuggest-accept					# shift + space accept autosuggestion
 
@@ -84,7 +84,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # tmux: ctrl+n to create a new session named after a target
 function create_target_session() {
-	tmux command-prompt -Fp 'Target:' "run-shell -bC 'new-session -e \"target\"=\"%1\" -s \"%1\""
+	tmux command-prompt -Fp 'Target:' "run-shell -bC 'new-session -e \"target\"=\"%1\" -s \"Target - %1\""
 }
 zle -N create_target_session
 bindkey '^N' create_target_session
