@@ -35,9 +35,13 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
-# comment these lines to remove the target information from the prompt
-TARGET='$(if [ -n "$target" ]; then echo "[%{$fg[magenta]%}$target%{$reset_color%}] "; fi)'
-PROMPT=$TARGET$PROMPT	# prepend target info if $target set
+
+# add some extra goodies to the robbyrussel theme
+if [[ $ZSH_THEME -eq "robbyrussell" ]]
+then
+	TARGET='$(if [ -n "$target" ]; then echo "[%{$fg[magenta]%}$target%{$reset_color%}] "; fi)'
+	PROMPT='%{$fg[yellow]%}%T%{$reset_color%} '$TARGET$PROMPT	# prepend target info if $target set
+fi
 
 # configure key keybindings
 bindkey ' ' magic-space							# do history expansion on space
