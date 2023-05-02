@@ -3,8 +3,8 @@
 FMT_GREEN=$(printf '\033[32m')
 FMT_RESET=$(printf '\033[0m')
 
-echo "[*] ${FMT_GREEN}Installing pre-requisites (tmux, zsh, grc, python3, git, curl)${FMT_RESET}"
-sudo apt update && sudo apt install tmux zsh grc python3 python3-pip git curl -y || exit 1
+echo "[*] ${FMT_GREEN}Installing pre-requisites (tmux, zsh, grc, python3, git, curl, xsel)${FMT_RESET}"
+sudo apt update && sudo apt install tmux zsh grc python3 python3-pip git curl xsel -y || exit 1
 
 echo "[*] ${FMT_GREEN}Installing oh-my-zsh and plugins${FMT_RESET}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
