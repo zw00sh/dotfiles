@@ -39,7 +39,7 @@ PROMPT_EOL_MARK=""
 # add some extra goodies to the robbyrussel theme
 if [[ $ZSH_THEME -eq "robbyrussell" ]]
 then
-	TARGET='$(if [ -n "$target" ]; then echo "%{$fg[magenta]%}󰓾 $target%{$reset_color%} "; fi)'
+	TARGET='$(if [ -n "$target" ]; then echo "[%{$fg[magenta]%}$target%{$reset_color%}] "; fi)'
 	PROMPT="%{$fg[cyan]%}%T%{$reset_color%} $TARGET$PROMPT "	# prepend target info if $target set
 fi
 
