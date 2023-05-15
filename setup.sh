@@ -18,6 +18,9 @@ echo "[*] ${FMT_GREEN}Overwriting ~/.zshrc and ~/.tmux.conf with remote copies${
 curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.zshrc" > ~/.zshrc
 curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.tmux.conf" > ~/.tmux.conf
 
+echo "[*] ${FMT_GREEN}Installing FiraCode Nerd Font for tmux theme${FMT_RESET}"
+mkdir ~/.fonts/ && curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf" > ~/.fonts/FiraCodeNerdFont-Regular.ttf
+
 echo "[*] ${FMT_GREEN}Installing tmux plugins${FMT_RESET}"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
