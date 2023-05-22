@@ -86,13 +86,6 @@ NEWLINE_BEFORE_PROMPT=no
 #export PATH="$PATH:/home/zach/.local/bin/"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# tmux: ctrl+n to create a new session named after a target
-function create_target_session() {
-	tmux command-prompt -Fp 'Target:' "run-shell -bC 'new-session -e \"target\"=\"%1\" -s \"%1\""
-}
-zle -N create_target_session
-bindkey '^N' create_target_session
-
 # Set GRC aliases
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
