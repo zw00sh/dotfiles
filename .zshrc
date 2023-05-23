@@ -43,6 +43,18 @@ then
 	PROMPT="%{$fg[cyan]%}%T%{$reset_color%} $TARGET$PROMPT "	# prepend target info if $target set
 fi
 
+# update target before printing the prompt
+_update_target() {
+    local var
+    var=$(tmux show-environment | grep '^target=')
+    if [ "$?" -eq 0 ]; then
+        eval "$var"
+    fi
+}
+if [[ -n "$TMUX" ]]; then
+    add-zsh-hook precmd _update_target
+fi
+
 # configure key keybindings
 bindkey ' ' magic-space							# do history expansion on space
 bindkey '^U' backward-kill-line					# ctrl + U
