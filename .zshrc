@@ -105,5 +105,4 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 # Otherwise start tmux
-[[ -z "$TMUX" ]] && cd ~ && exec tmux new-session -As main
-#[[ -z "$TMUX" ]] && exec tmux new-session
+#[[ -z "$TMUX" ]] && cd ~ && exec tmux new-session -As main
