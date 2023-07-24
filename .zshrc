@@ -57,16 +57,13 @@ if [[ -n "$TMUX" ]]; then
 fi
 
 # configure key keybindings
-bindkey ' ' magic-space							# do history expansion on space
+bindkey ' ' magic-space						# do history expansion on space
 bindkey '^U' backward-kill-line					# ctrl + U
 bindkey '^[[1;5C' forward-word					# ctrl + ->			(important)
 bindkey '^[[1;5D' backward-word					# ctrl + <-			(important)
-bindkey '^H' backward-kill-word					# ctrl + backspace	(important)
-bindkey '^[[3;5~' kill-word						# ctrl + Supr
-bindkey '^[[3~' delete-char						# delete
 bindkey '^[[1~' beginning-of-line				# home
-bindkey '^[[4~' end-of-line						# end
-bindkey '^[[Z' undo								# shift + tab undo last action
+bindkey '^[[4~' end-of-line					# end
+bindkey '^[[Z' undo						# shift + tab undo last action
 bindkey '^ ' autosuggest-accept					# shift + space accept autosuggestion
 
 # History configurations
