@@ -4,7 +4,6 @@ plugins=(
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	sudo
-	dirhistory
 )
 
 ZSH_THEME="robbyrussell"
@@ -91,10 +90,6 @@ TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 PROMPT_ALTERNATIVE=twoline
 NEWLINE_BEFORE_PROMPT=no
 # STOP KALI CONFIG VARIABLES
-
-# add .local to PATH
-#export PATH="$PATH:/home/zach/.local/bin/"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Set GRC aliases
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
