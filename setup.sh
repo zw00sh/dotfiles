@@ -11,8 +11,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-echo "[*] ${FMT_GREEN}Changing the default shell to zsh${FMT_RESET}"
-chsh -s $(which zsh) "$USER"
+echo "[*] ${FMT_GREEN}Make sure you set the default shell to zsh if you haven't already${FMT_RESET}"
 
 echo "[*] ${FMT_GREEN}Overwriting ~/.zshrc and ~/.tmux.conf with remote copies${FMT_RESET}"
 curl -fsSL "https://raw.githubusercontent.com/zw00sh/dotfiles/main/.zshrc" > ~/.zshrc
@@ -31,3 +30,6 @@ echo "set -g default-shell $(which zsh)" >> ~/.tmux.conf
 
 echo "[*] ${FMT_GREEN}Reloading zsh${FMT_RESET}"
 zsh -c "source ~/.zshrc" && zsh
+
+echo "[*] ${FMT_GREEN}Launching tmux${FMT_RESET}"
+tmux -As main
