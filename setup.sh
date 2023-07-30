@@ -29,7 +29,7 @@ echo "[*] ${FMT_GREEN}Configuring tmux to use zsh by default${FMT_RESET}"
 echo "set -g default-shell $(which zsh)" >> ~/.tmux.conf
 
 echo "[*] ${FMT_GREEN}Reloading zsh${FMT_RESET}"
-zsh -c "source ~/.zshrc" && zsh
+zsh -c "source ~/.zshrc"
 
 echo "[*] ${FMT_GREEN}Launching tmux${FMT_RESET}"
-tmux -As main
+tmux new -As main
