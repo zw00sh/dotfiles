@@ -97,6 +97,7 @@ NEWLINE_BEFORE_PROMPT=no
 [[ $- != *i* ]] && return
 
 # Add a hook to save tmux session on exit
-trap '[[ -z "$TMUX" ]] && ~/.tmux/plugins/tmux-resurrect/scripts/save.sh' EXIT
+trap '[[ ! -z "$TMUX" ]] && ~/.tmux/plugins/tmux-resurrect/scripts/save.sh' EXIT
+#
 # Otherwise start tmux
 #[[ -z "$TMUX" ]] && cd ~ && exec tmux new-session -As main
