@@ -12,6 +12,8 @@ ZSH_THEME="robbyrussell"
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
+export PATH=$PATH:/home/kali/.local/bin
+
 # aliases
 alias sudo='sudo '	# https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 if command -v grc &> /dev/null
