@@ -4,7 +4,7 @@ Includes configuration files for tmux and zsh. Installs:
 - tmux logging can be enabled per-pane with `prefix+shift+p` or enabled for an entire session with `prefix+a` (`prefix+shift+a` to disable)
 - tmux session saving whenever a zsh exits
 
-# Installation
+# Kali Installation
 Please backup your `~/.zshrc` and `~/.tmux.conf`  before running.
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zw00sh/dotfiles/main/setup.sh)"
