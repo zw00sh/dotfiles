@@ -1,6 +1,8 @@
 Includes configuration files for tmux and zsh. Installs:
 - Zsh with oh-my-zsh, including syntax highlighting and autosuggestion plugins, and grc for colorisation
-- tmux with continuum and resurrect for automatic session backup
+- `prefix+n` to name a new session. The session name is available within zsh as `$target`. Rename with `prefix+$`
+- tmux logging can be enabled per-pane with `prefix+shift+p` or enabled for an entire session with `prefix+a` (`prefix+shift+a` to disable)
+- tmux session saving whenever a zsh exits
 
 # Installation
 Please backup your `~/.zshrc` and `~/.tmux.conf`  before running.
