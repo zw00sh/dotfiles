@@ -23,7 +23,6 @@ then
 	alias netstat='grc netstat'
 	alias ps='grc ps'
 fi
-alias venv='python3 -m venv'
 
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
@@ -32,6 +31,7 @@ setopt notify              # report the status of background jobs immediately
 setopt numericglobsort     # sort filenames numerically when it makes sense
 setopt promptsubst         # enable command substitution in prompt
 setopt sharehistory
+setopt incappendhistory
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
@@ -98,6 +98,9 @@ NEWLINE_BEFORE_PROMPT=no
 
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
+
+# Start tmux logging
+[[ ! -z "$TMUX" ]] && mkdir -p ~/logs/ && ~/.tmux/plugins/tmux-logging/scripts/toggle_logging.sh
 
 # Add a hook to save tmux session on exit
 trap '[[ ! -z "$TMUX" ]] && ~/.tmux/plugins/tmux-resurrect/scripts/save.sh &' EXIT
