@@ -54,7 +54,7 @@ _update_target() {
     fi
 }
 if [[ -n "$TMUX" ]]; then
-    add-zsh-hook precmd _update_target
+    add-zsh-hook preexec _update_target
 fi
 
 # configure key keybindings
@@ -86,13 +86,6 @@ alias history="history 0"
 # configure `time` format
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 
-# The following block is surrounded by two delimiters.
-# These delimiters must not be modified. Thanks.
-# START KALI CONFIG VARIABLES
-PROMPT_ALTERNATIVE=twoline
-NEWLINE_BEFORE_PROMPT=no
-# STOP KALI CONFIG VARIABLES
-
 # Set GRC aliases
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
@@ -100,7 +93,7 @@ NEWLINE_BEFORE_PROMPT=no
 [[ $- != *i* ]] && return
 
 # Start tmux logging
-[[ -n "$TMUX_PANE" ]] && [[ "$TMUX_PANE_AUTORUN" != "0" ]] && mkdir -p ~/logs/$(date '+%Y-%m-%d') && [[ -n "$(tmux show @autolog | grep 1)" ]] && ~/.tmux/plugins/tmux-logging/scripts/toggle_logging.sh
+[[ -n "$TMUX_PANE" ]] && [[ "$TMUX_PANE_AUTORUN" != "0" ]] && mkdir -p ~/logs/$(date '+%Y-%m-%d') && [[ -n "$(tmux show -Aq @autolog | grep 1)" ]] && ~/.tmux/plugins/tmux-logging/scripts/toggle_logging.sh
 
 # Add a hook to save tmux session on exit
 trap '[[ ! -z "$TMUX" ]] && ~/.tmux/plugins/tmux-resurrect/scripts/save.sh &' EXIT
