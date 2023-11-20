@@ -93,7 +93,7 @@ TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 [[ $- != *i* ]] && return
 
 # Start tmux logging
-[[ -n "$TMUX_PANE" ]] && [[ "$TMUX_PANE_AUTORUN" != "0" ]] && mkdir -p ~/logs/$(date '+%Y-%m-%d') && [[ -n "$(tmux show -Aq @autolog | grep 1)" ]] && ~/.tmux/plugins/tmux-logging/scripts/toggle_logging.sh
+[[ -n "$TMUX_PANE" ]] && [[ "$TMUX_PANE_AUTORUN" != "0" ]] && mkdir -p $HOME/logs/$(date '+%Y-%m-%d') && [[ -n "$(tmux show -Aq @autolog | grep 1)" ]] && ~/.tmux/plugins/tmux-logging/scripts/toggle_logging.sh
 
 # Add a hook to save tmux session on exit
 # trap '[[ ! -z "$TMUX" ]] && ~/.tmux/plugins/tmux-resurrect/scripts/save.sh &' EXIT
