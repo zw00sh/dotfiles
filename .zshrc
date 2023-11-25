@@ -72,7 +72,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=20000
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=40
-ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c100,)"		# limit history suggestions to 100 chars and less
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c250,)"		# limit history suggestions to 250 chars and less
 
 setopt hist_expire_dups_first		# delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       		# ignore duplicated commands history list
