@@ -47,15 +47,13 @@ fi
 
 # update target before printing the prompt
 _update_target() {
-    local var
-    var=$(tmux show-environment | grep '^target=')
     if [ "$?" -eq 0 ]; then
-        eval "$var"
+        eval "target=$(tmux showenv | grep "^target-$(tmux display-message -p '#I')=" | cut -d '=' -f2)"
     fi
 }
-# if [[ -n "$TMUX" ]]; then
-#     add-zsh-hook preexec _update_target
-# fi
+if [[ -n "$TMUX" ]]; then
+    add-zsh-hook preexec _update_target
+fi
 
 # configure key keybindings
 bindkey ' ' magic-space						# do history expansion on space
