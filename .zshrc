@@ -53,6 +53,7 @@ _update_target() {
 }
 if [[ -n "$TMUX" ]]; then
     add-zsh-hook preexec _update_target
+    add-zsh-hook precmd _update_target
 fi
 
 # configure key keybindings
