@@ -53,9 +53,9 @@ _update_target() {
         eval "$var"
     fi
 }
-if [[ -n "$TMUX" ]]; then
-    add-zsh-hook preexec _update_target
-fi
+# if [[ -n "$TMUX" ]]; then
+#     add-zsh-hook preexec _update_target
+# fi
 
 # configure key keybindings
 bindkey ' ' magic-space						# do history expansion on space
