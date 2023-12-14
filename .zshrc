@@ -7,11 +7,11 @@ plugins=(
 )
 
 ZSH_THEME="robbyrussell"
+LESS='-R --mouse --wheel-lines=3' # enable scrollwheel in less
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
-
 export PATH=$PATH:/home/kali/.local/bin
 
 # aliases
@@ -56,7 +56,7 @@ if [[ -n "$TMUX" ]]; then
     add-zsh-hook precmd _update_target
 fi
 
-# configure key keybindings
+# configure some key bindings
 bindkey ' ' magic-space						# do history expansion on space
 bindkey '^U' backward-kill-line					# ctrl + U
 bindkey '^[[1;5C' forward-word					# ctrl + ->			(important)
@@ -72,7 +72,6 @@ HISTSIZE=10000
 SAVEHIST=20000
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=40
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c250,)"		# limit history suggestions to 250 chars and less
-
 setopt hist_expire_dups_first		# delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       		# ignore duplicated commands history list
 setopt hist_ignore_space      		# ignore commands that start with space
