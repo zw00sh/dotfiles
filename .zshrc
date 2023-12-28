@@ -12,7 +12,7 @@ LESS='--mouse --wheel-lines=3' # enable scrollwheel in less
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
-export PATH=$PATH:/home/kali/.local/bin:/home/kali/go/bin/subfinder
+export PATH=$PATH:/home/kali/.local/bin:/home/kali/go/bin
 
 # set explicit UTF-8 support
 export LC_ALL=en_IN.UTF-8
