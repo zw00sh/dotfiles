@@ -16,6 +16,7 @@ export PATH=$PATH:/home/kali/.local/bin:/home/kali/go/bin
 
 # aliases
 alias sudo='sudo '	# https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+alias tmux='tmux -u'
 if command -v grc &> /dev/null
 then
 	alias nmap='grc nmap'
