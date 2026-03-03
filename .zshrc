@@ -4,19 +4,19 @@ plugins=(
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	sudo
+	git
 )
 
+ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 LESS='--mouse --wheel-lines=3' # enable scrollwheel in less
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+DISABLE_AUTO_UPDATE=true
 source $ZSH/oh-my-zsh.sh
-export PATH=$PATH:/home/kali/.local/bin:/home/kali/go/bin
 
 # aliases
 alias sudo='sudo '	# https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias tmux='tmux -u'
+alias ll='ls -la'
 if command -v grc &> /dev/null
 then
 	alias nmap='grc nmap'
@@ -78,6 +78,7 @@ setopt hist_ignore_dups       		# ignore duplicated commands history list
 setopt hist_ignore_space      		# ignore commands that start with space
 setopt hist_verify            		# show command with history expansion to user before running it
 setopt share_history          		# share command history data
+stty -ixon	# allow ctrl+s for going forward in history
 
 # force zsh to show the complete history
 alias history="history 0"
@@ -91,11 +92,4 @@ TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 
-# Start tmux logging
-#[[ -n "$TMUX_PANE" ]] && [[ "$TMUX_PANE_AUTORUN" != "0" ]] && mkdir -p $HOME/logs/$(date '+%Y-%m-%d') && [[ -n "$(tmux show -Aq @autolog | grep 1)" ]] && ~/.tmux/plugins/tmux-logging/scripts/toggle_logging.sh
 
-# Add a hook to save tmux session on exit
-# trap '[[ ! -z "$TMUX" ]] && ~/.tmux/plugins/tmux-resurrect/scripts/save.sh &' EXIT
-#
-# Otherwise start tmux
-#[[ -z "$TMUX" ]] && cd ~ && exec tmux new-session -As main
